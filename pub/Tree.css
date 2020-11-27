@@ -1,0 +1,27 @@
+.TreeJSNode{
+    text-align: center;
+    margin: 5px;  
+    margin-top: 20px;  
+   
+}
+
+.TreeJSNodeContentContainer {
+    width: fit-content;
+    margin: auto;
+}
+
+.TreeJSNode span {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 30px;
+    background-color: darkorange;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.TreeJSChildContainer {
+    
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+

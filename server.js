@@ -5,9 +5,10 @@ const PORT = process.env.PORT || 5000;
 const log = console.log;
 
 const app = express();
+app.use(express.static(path.join(__dirname, 'pub')));
 
 app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'index.html'));
+    res.status(200).sendFile('index.html');
 });
 
 
