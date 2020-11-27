@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'pub')));
 
 app.get("/", (req, res) => {
-    res.status(200).sendFile('index.html');
+    res.status(200).sendFile(path.join(__dirname, 'pub', 'examples.html'));
 });
 
 
