@@ -8,8 +8,22 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'pub')));
 
 app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'pub', 'examples.html'));
+    res.status(200).sendFile(path.join(__dirname, 'pub', 'html', 'index.html'));
 });
+
+
+app.get("/examples", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, 'pub','html', 'examples.html'));
+});
+
+app.get("/api", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, 'pub','html', 'api.html'));
+});
+
+app.get("/getting-started", (req, res) => {
+    res.status(200).sendFile(path.join(__dirname, 'pub','html', 'gettingStarted.html'));
+});
+
 
 
 app.listen(PORT, () => {

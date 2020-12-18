@@ -1,27 +1,98 @@
-.TreeJSNode{
-    text-align: center;
+.TreeJSNode {
     margin: 5px;  
     margin-top: 20px;  
    
 }
 
-.TreeJSNodeContentContainer {
+.TreeJSRootNode {
     width: fit-content;
     margin: auto;
 }
 
-.TreeJSNode span {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 30px;
-    background-color: darkorange;
+.TreeJSNodeContentContainer {
+    width: fit-content;
+    height: fit-content;
     padding: 10px;
     border-radius: 5px;
+    background-color: darkorange;
+    
+}
+
+.TreeJSNodeContent {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 30px;
 }
 
 .TreeJSChildContainer {
-    
-    margin-top: 10px;
-    display: flex;
+    margin: 5px;
     justify-content: space-around;
+} 
+
+/* ================ vertical tree ====================*/
+.TreeJSChildContainer.vertical-tree {
+    display: flex;
+    
 }
+
+.TreeJSNodeContentContainer.vertical-tree {
+    margin: auto;
+}
+
+/* ================ vertical ====================*/
+
+
+.TreeJSRootNode.vertical-navigation {
+    width: fit-content;
+    margin-left: 0px;
+}
+
+.TreeJSNode.vertical-navigation {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.TreeJSNodeContentContainer.vertical-navigation {
+    width: max-content;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+
+.TreeJSNodeContent.vertical-navigation {
+    width: max-content;
+    
+    border-radius: 0px;
+}
+
+.TreeJSChildContainer.vertical-navigation {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* ================ horizontal tree ====================*/
+
+.TreeJSHorizontalTableCell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.TreeJSNode.horizontal-tree {
+    display: table;
+    
+}
+
+.TreeJSNodeContentContainer.horizontal-tree {
+ 
+    margin: auto;
+}
+
+.TreeJSNodeContentContainer.horizontal-tree .TreeJSNodeContent {
+    display: inline-block;
+}
+
+.TreeJSChildContainer.horizontal-tree {
+    display: block;
+}
+
+/* ================ horizontal tree ====================*/
 

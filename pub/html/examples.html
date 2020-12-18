@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>TreeJS - examples</title>
+    <link rel="stylesheet" href="../css/examples.css">
+    <link rel="stylesheet" href="../Tree.css">
+    <script type="text/javascript" src="../Tree.js" defer></script>
+    <script type="text/javascript" src="../js/examples.js" defer></script>
+</head>
+<body>
+    <a id="backButton" href="/"> < Back </a>
+    <div id="titleContainer">
+        <span id="title">TREE JS</h1>
+    </div>
+
+    <div id="introContainer">
+        <p id="introParagraph">
+            TreeJS is a library for simplifying the DOM manipulation and display of data in a tree format.
+        </p>
+    </div>
+
+    <div class="exampleContainer">
+        <p class="exampleParagraph">
+            Getting started is easy. Start by including the TreeJS script in your <code>head</code> element
+            and then choose which DOM element you want to insert your tree into. You create a tree by instantiating 
+            a Tree object, which requires passing in the structure of the tree you are creating and an id for the root 
+            <code>div</code> element that will be used to contain the tree.
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    var myTreeStructure = {
+        root1: {
+            content: "root",
+            children: {
+                child1: {
+                    content: "child1",
+                },
+                child2: {
+                    content: "child2",
+                },
+            }
+        }
+    }
+    
+    var myTree = new Tree("myTreeRootId", myTreeStructure);
+    var exampleTreeContainer1 = document.getElementById("exampleTreeContainer1");
+    addTreeAsChild(myTree, exampleTreeContainer1);
+                </pre>
+            </code>
+        </div>
+        <p class="exampleParagraph">
+            This is a very simple tree structure with one root, with 2 children, although it is perfectly fine to have multiple roots. We define our tree structure, create the tree, 
+            and at it to our html via the <code>addTreeAsChild</code> method. Note that the key used for a node
+            can be anything you like and will be used as the id for the resulting div containing that node.
+            <br/><br/>
+            Result:
+        </p>
+        <div class="exampleTreeContainer" id="exampleTreeContainer1">
+
+        </div>
+    </div>  
+
+    <div class="exampleContainer">
+        <p class="exampleParagraph">
+            You can also add callbacks to any node you want! For example take the same code as the example above, but with
+            the following modification
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    children: {
+        child1: {
+            content: "child1-PRESSME",
+            callback: () => {alert("Pressed child 1")}
+        },
+        child2: {
+            content: "child2-PRESSME",
+            callback: () => {alert("Pressed child 2")}
+        }
+    }
+                </pre>
+            </code>
+        </div>
+        <p class="exampleParagraph">
+            Result:
+        </p>
+        <div class="exampleTreeContainer" id="exampleTreeContainer2">
+        
+        </div>
+    </div>
+
+    <div class="exampleContainer">
+        
+        <p class="exampleParagraph">
+            A great feature of TreeJS is the collapsibility of your tree. 
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    document.getElementById("myCollapseButton").onclick = () => {myTree.collapse()};
+    document.getElementById("myExpandButton").onclick = () => {myTree.expandAll()};
+                </pre>
+            </code>
+        </div>
+
+        <div id="collapseExpandButtonsContainer">
+            <button id="myCollapseButton">Collapse</button>
+            <button id="myExpandButton">Expand</button>
+        </div>
+
+        <div class="exampleTreeContainer" id="exampleTreeContainer3">
+            
+        </div>
+    </div>
+
+    <div class="exampleContainer">
+        
+        <p class="exampleParagraph">
+            We can also collapse/expand at each node. Note that if you want <code>this</code> to refer to the actual node
+            and not the structure object, use <code>function()</code> declarations instead of arraw functions, and TreeJS will bind 
+            <code>this</code> to the node for you!
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    var myTreeStructure = {
+        root: {
+            content: "expand me!",
+            callback: function () {this.expandAll()},
+            children: {
+                child1: {
+                    content: "collapse me!",
+                    callback: function() {this.collapse()},
+                    children: {
+                        child11: {content: "child11"},
+                        child12: {content: "child12"}
+                    }
+                },
+                child2: {
+                    content: "collapse me!",
+                    callback: function (){this.collapse()},
+                    children: {
+                        child21: {content: "child21"},
+                        child22: {content: "child22"}
+                    }
+                },
+            }
+        }
+    }
+                </pre>
+            </code>
+        </div>
+        <p class="exampleParagraph">
+            you can click on the nodes to collapse or expand them
+        </p>
+
+        <div class="exampleTreeContainer" id="exampleTreeContainer4">
+            
+        </div>
+    </div>
+
+    <div class="exampleContainer">
+        
+        <p class="exampleParagraph">
+            So far, we have used the default options for the Tree. We can pass in specific (global to the tree) options in an options object to cutomize the layout of the Tree.
+            For example we have the option to display the tree horizontally instead of vertically
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    var options = {
+        display: "horizontal-tree",
+        contentBackgroundColor: "lightblue",
+    }
+
+    var myTree = new Tree("myTreeRootId", myTreeStructure, options);
+                </pre>
+            </code>
+        </div>
+        <p class="exampleParagraph">
+            We can also pass in a 'color' property to each child specifically which will override global tree options
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+        child11: {content: "child11", color: "lightgreen"},
+        child12: {content: "child12", color: "lightgreen"}
+
+        ... 
+
+        child21: {content: "child21", color: "yellow"},
+        child22: {content: "child22", color: "yellow"}
+                </pre>
+            </code>
+        </div>
+        <div class="exampleTreeContainer" id="exampleTreeContainer5">
+            
+        </div>
+        
+        <p class="exampleParagraph">
+            Or a vertical navigation menu
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    var options = {
+        display: "vertical-navigation",
+    }
+                </pre>
+            </code>
+        </div>
+        <p class="exampleParagraph">
+            vertical navigations by default expand and collapse on user clicks, although you can still add your own callbacks, expand/collapse callbacks
+            will be called after your custom callback is called
+        </p>
+
+        <div class="exampleTreeContainer" id="exampleTreeContainer6">
+            
+        </div>
+    </div>
+
+    <div class="exampleContainer">
+        
+        <p class="exampleParagraph">
+            We can also use anything as the content for our tree nodes, so far we have passed in text, which TreeJS converts into a <code>span</code> 
+            element. Optionally we can pass ANY html element as our content.
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+        var child1Img = document.createElement("img")
+        child2Img.src, child2Img.width = {src: "./images/soccer_ball_real.png", width: 100}
+
+        var child2Img = document.createElement("img")
+        child2Img.src, child2Img.width = {src: "./images/soccer_ball_real.png", width: 100}
+
+        var myTreeStructure = {
+            root: {
+                content: "root",
+                children: {
+                    child1: {
+                        content: child1Img,
+                    },
+                    child2: {
+                        content: child2Img,
+                    },
+                }
+            }
+        }
+                </pre>
+            </code>
+        </div>
+
+
+        <div class="exampleTreeContainer" id="exampleTreeContainer7">
+            
+        </div>
+    </div>
+
+    <div class="exampleContainer">
+        
+        <p class="exampleParagraph">
+            TreeJS trees can be edited dynamically using the addChild and removeChild methods of each node 
+        </p>
+        <div class="codeSnippetContainer"> 
+            <code>
+                <pre>
+    var myTreeStructure = {
+        root1: {
+            content: "root",
+            children: {
+                child1: {
+                    content: "child1",
+                },
+                child2: {
+                    content: "child2",
+                },
+            }
+        }
+    }
+
+    var myTree = new Tree("myTreeRootId", myTreeStructure);
+    var exampleTreeContainer1 = document.getElementById("exampleTreeContainer1");
+    addTreeAsChild(myTree, exampleTreeContainer1);
+
+    var rightChild = myTree.root().children[1]
+
+    document.getElementById("myAddChildButton").onclick = () => {myTree.root().addChild(rightChild)};
+    document.getElementById("myRemoveChildButton").onclick = () => {myTree.root().removeChild(rightChild)};
+
+                </pre>
+            </code>
+        </div>
+
+        <div id="collapseExpandButtonsContainer">
+            <button id="myRemoveChildButton">remove right child</button>
+            <button id="myAddChildButton">add right child</button>
+        </div>
+
+
+        <div class="exampleTreeContainer" id="exampleTreeContainer8">
+            
+        </div>
+    </div>
+
+
+</body>
+</html>
