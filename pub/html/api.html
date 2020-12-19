@@ -81,7 +81,22 @@
                             function
                         </td>
                         <td>
-                            used to set properties of the default options object that sets object options that are not specified
+                            used to set properties of the default options object that sets object options that are not specified<br>
+                            parameters: (options)<br><br>
+
+                            <i>@param</i> <b>options</b>: (Object) object containing the options to set<br><br>
+                            
+                            <b>Note: </b>default options start as:<br>
+                            <pre>
+                                <code>
+    { 
+        display: 'vertical-tree',
+        contentBackgroundColor: 'darkorange',
+        scale: 1,
+        globalCallback: null
+    }
+                                </code>
+                            </pre>
                         </td>
                     </tr>
                     <tr>
@@ -93,7 +108,8 @@
                         </td>
                         <td>
                             Creates a Tree's dom representation if not already created and
-                            adds a Tree object's dom representation to the dom<br><br>
+                            adds a Tree object's dom representation to the dom<br>
+                            parameters: (tree, parent)<br><br>
 
                             <i>@param</i> <b>tree</b>: The Tree object to append to the DOM<br>
                             <i>@param</i> <b>parent</b>: the parent / containing element that the Tree's Dom representation will become a child of
@@ -227,10 +243,10 @@
     <!------------------------ Node ---------------------------->
     <div class="ObjectAPIContainer">
         <div class="ObjectHeader">
-            <span class="ObjectHeaderSpan">Node</span>
+            <span class="ObjectHeaderSpan">TreeNode</span>
             <div class="ObjectHeaderDescriptionContainer">
                 <p class="ObjectHeaderDescription">
-                    
+                    a node in a Tree Object
                 </p>
 
             </div>
@@ -252,13 +268,135 @@
                     </tr>
                     <tr>
                         <td>
-                            
+                            structure
                         </td>
                         <td>
-
+                            Object
                         </td>
                         <td>
+                            strucuture of the tree rooted at the node (see structure)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            id
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            id of the div containing this node's DOM representation
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            options
+                        </td>
+                        <td>
+                            Object
+                        </td>
+                        <td>
+                            passed down from parent, determines the various options associated with a Tree (see options)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           domNode
+                        </td>
+                        <td>
+                            Element
+                        </td>
+                        <td>
+                            div containing this node's DOM representation
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           _visible
+                        </td>
+                        <td>
+                           boolean
+                        </td>
+                        <td>
+                            private variable used for collapsing and expanding nodes. <br/>
+                            <b>Modifying may have minor unintended effects within the node's DOM representation</b> 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           content
+                        </td>
+                        <td>
+                           String or Element
+                        </td>
+                        <td>
+                            the content of this node in the DOM, strings are translated into span elements in the DOM, otherwise if content is type Element, then content will be directly displayed in the DOM under this node's content container (see css section)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           collapse
+                        </td>
+                        <td>
+                           function
+                        </td>
+                        <td>
+                            collapses this node so none of its children are visible in the DOM<br>
+                            parameters: (void)
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           expand
+                        </td>
+                        <td>
+                           function
+                        </td>
+                        <td>
+                            expands this node so all its children are visible in the DOM<br>
+                            parameters: (void)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           expandAll
+                        </td>
+                        <td>
+                           function
+                        </td>
+                        <td>
+                            expands this node and recursivley expands all this nodes children<br>
+                            parameters: (void)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           removeChild
+                        </td>
+                        <td>
+                           function
+                        </td>
+                        <td>
+                            removes a child from this nodes children<br>
+                            parameters: (child)<br><br>
+
+                            <i>@Param</i> <b>child</b>: (Node) the child to remove
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                           addChild
+                        </td>
+                        <td>
+                           function
+                        </td>
+                        <td>
+                            add a childt to this nodes children<br>
+                            parameters: (child, index)<br><br>
+
+                            <i>@Param</i> <b>child</b>: (Node) the child to remove<br>
+                            <i>@Param</i> <b>index</b>: (integer optional) index to insert child into this node's list of children, if not provided, child will be serted aas the last element
                         </td>
                     </tr>
                 </tbody>
@@ -270,12 +408,11 @@
     <!------------------------ Node ---------------------------->
     <div class="ObjectAPIContainer">
         <div class="ObjectHeader">
-            <span class="ObjectHeaderSpan">Tree</span>
+            <span class="ObjectHeaderSpan"><i>structure</i></span>
             <div class="ObjectHeaderDescriptionContainer">
                 <p class="ObjectHeaderDescription">
-                    
+                    user defined object used in constructor of a Tree or TreeNode, note that its definition is recursive
                 </p>
-
             </div>
         </div>
 
@@ -295,13 +432,14 @@
                     </tr>
                     <tr>
                         <td>
-                            
+                            &ltnodeid&gt
                         </td>
                         <td>
-
+                            Object
                         </td>
                         <td>
-
+                            the key for this property is user defined. The name of this key will be the id of the resulting node created from its value,
+                            value is an Object following the node structure specification (see node structure), there may be many of this kind of property.
                         </td>
                     </tr>
                 </tbody>
@@ -310,5 +448,257 @@
 
     </div>
 
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeader">
+            <span class="ObjectHeaderSpan"><i>node structure</i></span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    user defined object used in constructor of a Tree or TreeNode, note that its definition is recursive
+                </p>
+            </div>
+        </div>
+
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            content
+                        </td>
+                        <td>
+                            String or Element
+                        </td>
+                        <td>
+                            the content of this node in the DOM, strings are translated into span elements in the DOM, otherwise if content is type Element, then content will be directly displayed in the DOM under this node's content container (see css section)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            callback
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            the function that will be called as the onclick for this node's content container
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            color
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            color that this node will be colored, overrides the global option
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            children
+                        </td>
+                        <td>
+                            Object
+                        </td>
+                        <td>
+                            each key in this object is a nodeid with a node structure as its value, represents
+                            one of this nodes children.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!------------------------ Options ---------------------------->
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeader">
+            <span class="ObjectHeaderSpan">options</span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    user defined object passed to constructor of a Tree
+                </p>
+            </div>
+        </div>
+
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            display
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            determines how to display the tree (see examples), accepted options are: <br><br>
+
+                            <b>"vertical-tree</b>" (default): displays the tree root at the top and children branch left to right underneath<br><br>
+                            <b>"horiztonal-tree"</b>: displays the tree root on the left and children branch top to bottom to the right<br><br>
+                            <b>"vertical-navigation"</b>: displays the tree on the left of its container with the root at the top and each child as a list beneath it<br><br>
+                            
+                            <b>Note:</b> this value will be added to the class list of each TreeJS-created element in the tree, if the display contains "navigation" each node
+                            will automatically collapse or expand when clicked
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            contentBackgroundColor
+                        </td>
+                        <td>
+                            String
+                        </td>
+                        <td>
+                            accepts any css color, will apply as the background color to each node's content container
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            scale
+                        </td>
+                        <td>
+                            float
+                        </td>
+                        <td>
+                            accepted values are floats between 0 and 1, this defines the ratio of size between each child to its parent (see examples)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            globalCallback
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            function to set as the callback for all nodes on a 'click' event unless specified in the structure Object
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!------------------------ Node ---------------------------->
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeader">
+            <span class="ObjectHeaderSpan">CSS</span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    each part of a Tree's DOM representation can be css selected by class
+                </p>
+            </div>
+        </div>
+
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            class
+                        </th>
+                        <th>
+                            Element type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            TreeJSRootNode
+                        </td>
+                        <td>
+                            div
+                        </td>
+                        <td>
+                            The outermost div of the tree, its content contains the rest of the Tree<br><br>
+
+                            <b>parent:</b> assigned by user upon calling TreeJS.addTreeAsChild (see TreeJS)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            TreeJSNode
+                        </td>
+                        <td>
+                            div
+                        </td>
+                        <td>
+                            DOM representation of a TreeNode, contains children div.TreeJSContentContainer and div.TreeJSChildContainer<br><br>
+
+                            <b>parent:</b> div.TreeJSChildContainer 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            TreeJSNodeContentContainer
+                        </td>
+                        <td>
+                            div
+                        </td>
+                        <td>
+                            container for the assigned content of this node, contains child Element.TreeJSNodeContent<br><br>
+
+                            <b>parent:</b> div.TreeJSNode
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            TreeJSNodeContent
+                        </td>
+                        <td>
+                            div
+                        </td>
+                        <td>
+                            the assigned content of this node<br><br>
+
+                            <b>parent:</b> div.TreeJSContentContainer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            TreeJSChildrenContainer
+                        </td>
+                        <td>
+                            div
+                        </td>
+                        <td>
+                            container for all the children of this node<br><br>
+
+                            <b>parent:</b> div.TreeJSNode
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+
+    </div>
 </body>
 </html>

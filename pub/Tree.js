@@ -55,7 +55,7 @@
             this.id = id;
             this.options = options; 
             this.domNode = null;
-            this.visible = true;
+            this._visible = true;
             if (["horizontal-tree"].includes(this.options.display)){
                 this.displayStyle = "table";
             } else {
@@ -78,7 +78,7 @@
             if(!this.domNode){
                 throw Error("TreeJS Error: can not collapse a tree that is not in the dom")
             }
-            this.visible = false;
+            this._visible = false;
             for(var i in this.children){
                 
                 this.children[i].domNode.style.display = "none";
@@ -87,7 +87,7 @@
         }
 
         expand(){
-            this.visible = true;
+            this._visible = true;
             for(var i in this.children){
                 var child = this.children[i];
                 if(child.domNode){                
@@ -232,7 +232,7 @@
                     if(node.callback) {
                         node.callback();
                     }
-                    node.visible ? node.collapse() : node.expand();
+                    node._visible ? node.collapse() : node.expand();
                 }
             }
         }
@@ -287,15 +287,16 @@
     _addTreeAsChild(tree, parent)
     }
 
-
-    //globally accessible
-
-    window.TreeJS = {
+    // exported library as object
+    TreeJS = {
         Tree: Tree,
         TreeNode: TreeNode,
         setOptionsDefault: setTreeJSOptionsDefault,
         addTreeAsChild: addTreeAsChild,
     }
+
+    //make globally accessible
+    global.TreeJS = global.TreeJS || TreeJS;
 
 })(window, window.document);
 

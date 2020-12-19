@@ -9,20 +9,18 @@
 #title {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
 }
+
 #topContainer {
     background-color: aquamarine;
     width: 100%;
     margin: 0px;
     padding: 5px;
-    /* border-bottom: 1px solid black; */
 }
 
-#title {
-    padding-bottom: 10px;
-    padding-top: 10px;
-   text-align: center;
-}
 
 body {
     background-color: aquamarine;

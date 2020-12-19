@@ -7,7 +7,87 @@
     <title>TreeJS - Getting Startedt</title>
 </head>
 <body>
-    <a id="backButton" href="/"> < Back </a>
+    <div id="topContainer">
+        <a id="backButton" href="/"> < Back </a>
+        <div id="titleContainer"> 
+            
+            <span id="title">Getting Started</h1>
+        </div>
+    </div>
+
+    <p class="exampleParagraph">To get started using TreeJS API, include these two files in your html head element preceeding scripts which use TreeJS</p>
+    <div id="gettingStartedContainer" class="codeSnippetContainer">
+        
+        <code>
+            <pre>
+
+    &ltscript type="text/javascript" src="https://treejs309.herokuapp.com/pub/Tree.js"&gt
+    &ltlink rel="stylesheet" href="https://treejs309.herokuapp.com/pub/Tree.css"&gt
+            </pre>
+        </code>
+    </div>
+
+    <p class="exampleParagraph">In your html file, start by  making a container for the Tree you will be creating</p>
+    <div id="gettingStartedContainer" class="codeSnippetContainer">
+        
+        <code>
+            <pre>
+    &lt!DOCTYPE html&gt
+    &lthtml lang="en"&gt
+    &lthead&gt
+        &ltscript type="text/javascript" src="https://treejs309.herokuapp.com/pub/Tree.js"/&gt
+        &ltlink rel="stylesheet" href="https://treejs309.herokuapp.com/pub/Tree.css"/&gt
+    &lt/head&gt
+    &ltbody&gt
+        
+        <b>&ltdiv id="myTreeContainer"&gt&lt/div&gt</b>
+        
+    &lt/body&gt
+    &lt/html&gt
+            </pre>
+        </code>
+    </div>
+
+    <p class="exampleParagraph">In your js file, define the structure of your Tree</p>
+    <div id="gettingStartedContainer" class="codeSnippetContainer">
+        
+        <code>
+            <pre>
+   
+    var myTreeStructure = {
+        root1: {
+            content: "root",
+            children: {
+                child1: {
+                    content: "child1",
+                },
+                child2: {
+                    content: "child2",
+                },
+            }
+        }
+    }
+            </pre>
+        </code>
+    </div>
+
+
+    <p class="exampleParagraph">Now create the Tree, and append it to the DOM</p>
+    <div id="gettingStartedContainer" class="codeSnippetContainer">
+        
+        <code>
+            <pre>
+   
+    var myTree = new Tree("myTreeRootId", myTreeStructure);
     
+    var myTreeContainer = document.getElementById("myTreeContainer");
+    addTreeAsChild(myTree, myTreeContainer);
+            </pre>
+        </code>
+    </div>
+
+    <p class="exampleParagraph">And thats it! you now have a TreeJS Tree in your DOM, open the html file in your browser to see the result:</p>
+    
+
 </body>
 </html>
