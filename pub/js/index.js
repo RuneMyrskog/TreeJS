@@ -33,11 +33,11 @@ const mainNavigationTreeStructure = {
     }
 }
 
-var mainNavigationTree = new Tree("mainNavigationTree", mainNavigationTreeStructure, {display: "vertical-tree navigation"});
+var mainNavigationTree = new TreeJS.Tree("mainNavigationTree", mainNavigationTreeStructure, {display: "vertical-tree navigation"});
 
 window.onload = () => {
     var mainNavigationTreeContainer = document.getElementById("mainNavigationTreeContainer");
-    addTreeAsChild(mainNavigationTree, mainNavigationTreeContainer);
+    TreeJS.addTreeAsChild(mainNavigationTree, mainNavigationTreeContainer);
 }
 
 

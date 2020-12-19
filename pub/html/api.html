@@ -7,6 +7,300 @@
     <title>TreeJS - api</title>
 </head>
 <body>
-    <a id="backButton" href="/"> < Back </a>
+    <div id="topContainer">
+        <a id="backButton" href="/"> < Back </a>
+        <div id="titleContainer"> 
+            
+            <span id="title">TREE JS API</h1>
+        </div>
+    </div>
+
+    <div id="padding"></div>
+    <div id="gettingStartedContainer">
+        <p>To use TreeJS API</p>
+    </div>
+    <!------------------------ TreeJS ---------------------------->
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeaderContainer">
+            <span class="ObjectHeaderSpan">TreeJS</span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    global object containing top level library methods, property of the window object
+                </p>
+            </div>
+        </div>
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Tree
+                        </td>
+                        <td>
+                            class 
+                        </td>
+                        <td>
+                            main object of TreeJS library used to represent a Tree (see Tree) 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            TreeNode
+                        </td>
+                        <td>
+                            class
+                        </td>
+                        <td>
+                            object representing the nodes of an instantiated Tree (see Node)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            setOptionsDefault
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            used to set properties of the default options object that sets object options that are not specified
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            addTreeAsChild
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            Creates a Tree's dom representation if not already created and
+                            adds a Tree object's dom representation to the dom<br><br>
+
+                            <i>@param</i> <b>tree</b>: The Tree object to append to the DOM<br>
+                            <i>@param</i> <b>parent</b>: the parent / containing element that the Tree's Dom representation will become a child of
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!------------------------ Options ---------------------------->
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeader">
+            <span class="ObjectHeaderSpan">Tree</span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    
+                </p>
+
+            </div>
+        </div>
+
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            constructor
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            instantiate a Tree object<br/>
+                            parameters: (rootid, structure, options)<br/><br/>
+
+                            <i>@param</i> <b>rootid</b>: String used as the id for the root container that will be created to hold <br/>
+                            <i>@param</i> <b>structure</b>: structure object <br/>
+                            <i>@param</i> <b>options</b>: Object holding all options for this Tree (see options object) <br/><br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            root
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            returns the ith root node of this Tree<br/><br/>
+
+                            <i>@param</i> <b>i</b>: integer greater than 0, used to index the root node's of the tree
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            collapse
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            collapse the entire tree so that only the root nodes are showing<br/><br/>
+
+                            sets the display css property of all children's dom elements to "none"
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            expand
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            expands the root nodes so that their children are showing<br/><br/>
+
+                            sets the display css property of all children to their previous display styles before they were set to "none" on a collapse call
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            expandAll
+                        </td>
+                        <td>
+                            function
+                        </td>
+                        <td>
+                            recursivley expands all nodes of the Tree so the entire Tree's nodes are visible
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            structure
+                        </td>
+                        <td>
+                            Object
+                        </td>
+                        <td>
+                            deep copy of the structure used in constructing this Tree object (see structure)                     
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            domNode
+                        </td>
+                        <td>
+                            Element
+                        </td>
+                        <td>
+                            div element containing this Tree's dom representation, id of this div is set to the id passed into the constructor                    
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!------------------------ Node ---------------------------->
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeader">
+            <span class="ObjectHeaderSpan">Node</span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    
+                </p>
+
+            </div>
+        </div>
+
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!------------------------ Node ---------------------------->
+    <div class="ObjectAPIContainer">
+        <div class="ObjectHeader">
+            <span class="ObjectHeaderSpan">Tree</span>
+            <div class="ObjectHeaderDescriptionContainer">
+                <p class="ObjectHeaderDescription">
+                    
+                </p>
+
+            </div>
+        </div>
+
+        <div class="APITableContainer">
+            <table class="APITable">
+                <tbody>
+                    <tr class="APITableHeaderRow">
+                        <th>
+                            Property
+                        </th>
+                        <th>
+                            Type
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
 </body>
 </html>

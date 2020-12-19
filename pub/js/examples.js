@@ -12,9 +12,9 @@ var exampleTreeStructure1 = {
     }
 }
 
-var exampleTree1 = new Tree("exampleTree1RootId", exampleTreeStructure1);
+var exampleTree1 = new TreeJS.Tree("exampleTree1RootId", exampleTreeStructure1);
 var exampleTreeContainer1 = document.getElementById("exampleTreeContainer1");
-addTreeAsChild(exampleTree1, exampleTreeContainer1);
+TreeJS.addTreeAsChild(exampleTree1, exampleTreeContainer1);
 
 
 var exampleTreeStructure2 = {
@@ -33,9 +33,9 @@ var exampleTreeStructure2 = {
     }
 }
 
-var exampleTree2 = new Tree("exampleTree2RootId", exampleTreeStructure2);
+var exampleTree2 = new TreeJS.Tree("exampleTree2RootId", exampleTreeStructure2);
 var exampleTreeContainer2 = document.getElementById("exampleTreeContainer2");
-addTreeAsChild(exampleTree2, exampleTreeContainer2);
+TreeJS.addTreeAsChild(exampleTree2, exampleTreeContainer2);
 
 var exampleTreeStructure3 = {
     root: {
@@ -51,9 +51,9 @@ var exampleTreeStructure3 = {
     }
 }
 
-var exampleTree3 = new Tree("exampleTree3RootId", exampleTreeStructure3);
+var exampleTree3 = new TreeJS.Tree("exampleTree3RootId", exampleTreeStructure3);
 var exampleTreeContainer3 = document.getElementById("exampleTreeContainer3");
-addTreeAsChild(exampleTree3, exampleTreeContainer3);
+TreeJS.addTreeAsChild(exampleTree3, exampleTreeContainer3);
 document.getElementById("myCollapseButton").onclick = () => {exampleTree3.collapse()};
 document.getElementById("myExpandButton").onclick = () => {exampleTree3.expandAll()};
 
@@ -82,9 +82,9 @@ var exampleTreeStructure4 = {
     }
 }
 
-var exampleTree4 = new Tree("exampleTree4RootId", exampleTreeStructure4);
+var exampleTree4 = new TreeJS.Tree("exampleTree4RootId", exampleTreeStructure4);
 var exampleTreeContainer4 = document.getElementById("exampleTreeContainer4");
-addTreeAsChild(exampleTree4, exampleTreeContainer4);
+TreeJS.addTreeAsChild(exampleTree4, exampleTreeContainer4);
 
 
 var exampleTreeStructure5 = {
@@ -116,9 +116,9 @@ var exampleTree5Options = {
     contentBackgroundColor: "lightblue",
 }
 
-var exampleTree5 = new Tree("exampleTree4RootId", exampleTreeStructure5, exampleTree5Options);
+var exampleTree5 = new TreeJS.Tree("exampleTree4RootId", exampleTreeStructure5, exampleTree5Options);
 var exampleTreeContainer5 = document.getElementById("exampleTreeContainer5");
-addTreeAsChild(exampleTree5, exampleTreeContainer5);
+TreeJS.addTreeAsChild(exampleTree5, exampleTreeContainer5);
 
 //============================================================================================
 var exampleTreeStructure6 = {
@@ -149,17 +149,17 @@ var exampleTree6Options = {
     contentBackgroundColor: "lightblue",
 }
 
-var exampleTree6 = new Tree("exampleTree4RootId", exampleTreeStructure6, exampleTree6Options);
+var exampleTree6 = new TreeJS.Tree("exampleTree4RootId", exampleTreeStructure6, exampleTree6Options);
 var exampleTreeContainer6 = document.getElementById("exampleTreeContainer6");
-addTreeAsChild(exampleTree6, exampleTreeContainer6);
+TreeJS.addTreeAsChild(exampleTree6, exampleTreeContainer6);
 exampleTree6.collapse();
 
 var child1Img = document.createElement("img")
-child1Img.src = "./images/soccer_ball_cartoon.png"
+child1Img.src = "../images/soccer_ball_cartoon.png"
 child1Img.width = 100;
 
 var child2Img = document.createElement("img")
-child2Img.src = "./images/soccer_ball_real.png"
+child2Img.src = "../images/soccer_ball_real.png"
 child2Img.width =  100;
 child2Img.height = 100;
 
@@ -177,9 +177,9 @@ var exampleTreeStructure7 = {
     }
 }
 
-var exampleTree7 = new Tree("exampleTree7RootId", exampleTreeStructure7);
+var exampleTree7 = new TreeJS.Tree("exampleTree7RootId", exampleTreeStructure7);
 var exampleTreeContainer7 = document.getElementById("exampleTreeContainer7");
-addTreeAsChild(exampleTree7, exampleTreeContainer7);
+TreeJS.addTreeAsChild(exampleTree7, exampleTreeContainer7);
 
 
 var exampleTreeStructure8 = {
@@ -196,9 +196,9 @@ var exampleTreeStructure8 = {
     }
 }
 
-var exampleTree8 = new Tree("exampleTree8RootId", exampleTreeStructure8);
+var exampleTree8 = new TreeJS.Tree("exampleTree8RootId", exampleTreeStructure8);
 var exampleTreeContainer1 = document.getElementById("exampleTreeContainer8");
-addTreeAsChild(exampleTree8, exampleTreeContainer1);
+TreeJS.addTreeAsChild(exampleTree8, exampleTreeContainer1);
 
 var rightChild = exampleTree8.root().children[1]
 console.log("right child",rightChild)
