@@ -24,6 +24,13 @@ app.get("/getting-started", (req, res) => {
     res.status(200).sendFile(path.join(__dirname, 'pub','html', 'gettingStarted.html'));
 });
 
+app.get("/pub/Tree.js", (req ,res) => {
+    res.sendFile(path.join(__dirname, "pub", "Tree.js"))
+})
+
+app.get("/pub/Tree.css", (req ,res) => {
+    res.sendFile(path.join(__dirname, "pub", "Tree.css"))
+})
 
 
 app.listen(PORT, () => {
