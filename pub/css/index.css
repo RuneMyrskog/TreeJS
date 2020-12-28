@@ -6,16 +6,17 @@ body {
     text-align: center;
     max-width: 60%;
     margin: auto;
-    margin-top: 80px;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
 }
 
 #introParagraph {
-    font-size: 30px;
+    font-size: 4vh;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .TreeJSNodeContent {
-    font-size: 50px;
+    font-size: 5vh;
     text-decoration: none;
     color: black;
 }
@@ -40,5 +41,5 @@ body {
 
 #fractalTreeImg {
     margin: auto;
-    width: 20%;
+    height: 30vh;
 }
