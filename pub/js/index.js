@@ -38,6 +38,7 @@ var mainNavigationTree = new TreeJS.Tree("mainNavigationTree", mainNavigationTre
 window.onload = () => {
     var mainNavigationTreeContainer = document.getElementById("mainNavigationTreeContainer");
     TreeJS.addTreeAsChild(mainNavigationTree, mainNavigationTreeContainer);
+    mainNavigationTree.collapse()
 }
 
 
