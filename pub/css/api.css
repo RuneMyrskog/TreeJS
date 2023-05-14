@@ -1,5 +1,4 @@
 #titleContainer {
-    background-color: aquamarine;
     width: 100%;
     height: fit-content;
     text-align: center;
@@ -15,7 +14,6 @@
 }
 
 #topContainer {
-    background-color: aquamarine;
     width: 100%;
     margin: 0px;
     padding: 5px;
@@ -23,7 +21,8 @@
 
 
 body {
-    background-color: aquamarine;
+    background-image: linear-gradient(to bottom right, rgb(53, 241, 179), rgb(199, 246, 27));
+    overflow-x: clip;
     margin: 0;
 }
 
@@ -34,7 +33,6 @@ body {
 #backButton {
     font-size: 25px;
     text-decoration: none;
-    background-color: aquamarine;
     width: 100%;
 }
 

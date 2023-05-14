@@ -1,14 +1,20 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
 body {
-    background-color: aquamarine;
-    overflow-y: scroll;
+    background-image: linear-gradient(to bottom right, rgb(53, 241, 179), rgb(199, 246, 27));
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow-x: clip;
 }
 
 #introContainer {
     text-align: center;
     max-width: 60%;
     margin: auto;
-    margin-top: 5vh;
-    margin-bottom: 2vh;
+    padding: 2rem;
 }
 
 #introParagraph {
@@ -35,12 +41,22 @@ body {
 #fractalTreeImgContainer {
     position: absolute;
     bottom: 0;
-    text-align: center;
+    left: 0;
+    height: 100%;
     width: 100%;
+    z-index: -10;
+    background-image: url(../../images/fractalTree.png);
+    background-position-x: center;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+    text-align: center;
+    opacity: 0.2;
     
 }
 
 #fractalTreeImg {
     margin: auto;
-    height: 30vh;
+    height: 20rem;
+    z-index: -1;
+    opacity: 0.5;
 }
